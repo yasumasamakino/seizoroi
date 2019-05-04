@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="/js/event_calendar.js" th:src="@{/js/event_calendar.js}"></script>
+    <script>
+        $("#datepicker").datepicker();
+    </script>
+</head>
+<body>
+    <h1>イベント作成</h1>
+
+    <h2>イベント名</h2>
+    <input type="text" placeholder="○/○懇親会 とか"><br>
+
+    <h2>開始予定時間</h2>
+    <input type="text" placeholder="19:00とか未定とか" id="candidateTime"><br>
+
+    <h2>日程候補</h2>
+    <div>
+        <div id="datepicker"/>
+
+        <p>候補日</p>
+        <textarea cols="40" rows="4" id="candidateDate"></textarea>
+    </div>
+
+    <h2>管理者メールアドレス</h2>
+    <p>登録しておくと予定が入力されたときにメールでお知らせされるよ。</p>
+    <input type="email"/>
+
+</body>
+</html>
