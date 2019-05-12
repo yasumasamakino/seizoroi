@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3314/seizoroi
+    username: user
+    password: seizoroi
+    driver-class-name: com.mysql.jdbc.Driver
