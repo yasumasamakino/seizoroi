@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3314/seizoroi
+    url: jdbc:mysql://localhost:3306/seizoroi?character_set_server=utf8mb4s
     username: user
     password: seizoroi
     driver-class-name: com.mysql.jdbc.Driver

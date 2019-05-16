@@ -2,13 +2,13 @@ $(function(){
     $('#datepicker').datepicker({
         dateFormat: "yy/mm/dd",
         onSelect: function (selectedDate) {
-            var candidateTime = $("#candidateTime").val();
-            var existDate = $("#candidateDate").val();
+            var candidateTime = $("#proposedTime").val();
+            var existDate = $("#proposedDate").val();
             var addDate =  selectedDate + ' ' + candidateTime + '〜' + '\n';
             if (!existDate.trim()) {
-                $('#candidateDate').val(addDate);
+                $('#proposedDate').val(addDate);
             } else {
-                $('#candidateDate').val(existDate + addDate);
+                $('#proposedDate').val(existDate + addDate);
             }
         }
     });

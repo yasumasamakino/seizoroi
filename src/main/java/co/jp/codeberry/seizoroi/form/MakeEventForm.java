@@ -12,7 +12,7 @@ public class MakeEventForm implements Serializable {
     private String eventName;
 
     @NotNull
-    private String candidateDate;
+    private String proposedDate;
 
     @NotNull
     private String adminEmailaddress;
@@ -25,12 +25,12 @@ public class MakeEventForm implements Serializable {
         this.eventName = eventName;
     }
 
-    public String getCandidateDate() {
-        return candidateDate;
+    public String getProposedDate() {
+        return proposedDate;
     }
 
-    public void setCandidateDate(String candidateDate) {
-        this.candidateDate = candidateDate;
+    public void setProposedDate(String proposedDate) {
+        this.proposedDate = proposedDate;
     }
 
     public String getAdminEmailaddress() {
