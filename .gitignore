@@ -1,6 +1,7 @@
 HELP.md
 .gradle
 /build/
+docker/mysql/data/*
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
