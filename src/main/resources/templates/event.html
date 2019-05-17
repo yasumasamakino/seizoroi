@@ -18,6 +18,7 @@
     <form role="form" method="post" action="#" th:action="@{/event/register}"  th:object="${makeEventForm}">
         <h2>イベント名</h2>
         <input type="text" placeholder="○/○懇親会 とか" name="eventName" ><br>
+        <span th:if="${#fields.hasErrors('eventName')}" th:errors="*{eventName}" style="color: red"></span><br>
 
         <h2>開始予定時間</h2>
         <input type="text" placeholder="19:00とか未定とか" id="proposedTime"><br>
@@ -27,12 +28,14 @@
             <div id="datepicker"/>
 
             <p>候補日</p>
-            <textarea cols="40" rows="4" id="proposedDate" name="proposedDate" ></textarea>
+            <textarea cols="40" rows="4" id="proposedDate" name="proposedDate" ></textarea><br>
+            <span th:if="${#fields.hasErrors('proposedDate')}" th:errors="*{proposedDate}" style="color: red"></span><br>
         </div>
 
         <h2>管理者メールアドレス</h2>
         <p>登録しておくと予定が入力されたときにメールでお知らせされるよ。</p>
         <input type="email" name="adminEmailaddress" /><br>
+        <span th:if="${#fields.hasErrors('adminEmailaddress')}" th:errors="*{adminEmailaddress}" style="color: red"></span><br>
         <button type="submit">イベント登録</button>
     </form>
 

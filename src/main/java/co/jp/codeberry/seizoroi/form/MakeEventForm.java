@@ -1,20 +1,20 @@
 package co.jp.codeberry.seizoroi.form;
 
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 public class MakeEventForm implements Serializable {
 
     private static final long serialVersionUID = -4230749597623724534L;
 
-    @NotNull
+    @NotBlank
     private String eventName;
 
-    @NotNull
+    @NotBlank
     private String proposedDate;
 
-    @NotNull
+    @NotBlank
     private String adminEmailaddress;
 
     public String getEventName() {

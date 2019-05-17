@@ -44,6 +44,11 @@ public class EventController {
     @PostMapping("/event/register")
     public ModelAndView register(@Validated MakeEventForm makeEventForm, BindingResult result, ModelAndView mv) {
 
+        if (result.hasErrors()) {
+            mv.setViewName("event");
+            return mv;
+        }
+
         // イベントの登録情報を作る
         Event event = new Event();
         event.setName(makeEventForm.getEventName());
@@ -87,7 +92,7 @@ public class EventController {
             // イベント候補日の登録
             eventProposedDateMapper.save(eventProposedDate);
         });
-        
+
         mv.setViewName("registerComplete");
         return mv;
     }
