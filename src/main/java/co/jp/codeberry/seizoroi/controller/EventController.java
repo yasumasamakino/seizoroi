@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.math.BigInteger;
@@ -55,11 +56,12 @@ public class EventController {
         event.setAdminEmail(makeEventForm.getAdminEmailaddress());
 
         // ランダム文字列を生成
+        String random = null;
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             digest.reset();
             digest.update((makeEventForm.getEventName() + System.currentTimeMillis()).getBytes("utf8"));
-            String random = String.format("%064x", new BigInteger(1, digest.digest()));
+            random = String.format("%064x", new BigInteger(1, digest.digest()));
             event.setRandom(random);
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,7 +95,14 @@ public class EventController {
             eventProposedDateMapper.save(eventProposedDate);
         });
 
+        mv.addObject("random",random);
         mv.setViewName("registerComplete");
         return mv;
+    }
+
+    @GetMapping("/event/member")
+    public ModelAndView member(@RequestParam("id") String id) {
+
+
     }
 }
