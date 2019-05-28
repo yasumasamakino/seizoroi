@@ -101,8 +101,15 @@ public class EventController {
     }
 
     @GetMapping("/event/member")
-    public ModelAndView member(@RequestParam("id") String id) {
+    public ModelAndView member(@RequestParam("rm") String random, ModelAndView mv) {
 
+        Event event = eventMapper.findByRandom(random);
+        List<EventProposedDate> eventProposedDateList = eventProposedDateMapper.findById(event);
+
+        mv.addObject("event", event);
+        mv.addObject("eventProposedDateList", eventProposedDateList);
+        mv.setViewName("attendance");
+        return mv;
 
     }
 }

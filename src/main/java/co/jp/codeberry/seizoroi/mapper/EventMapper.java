@@ -7,7 +7,10 @@ import org.apache.ibatis.annotations.*;
 public interface EventMapper {
 
     @Select("select * from event where random = #{random}")
-    Event findByRandom(@Param("random") String random);
+    @Results({
+            @Result(property = "adminEmail", column = "admin_email")
+    })
+    Event findByRandom(String random);
 
     @Insert("insert into event (name, admin_email, random) values (#{name}, #{adminEmail}, #{random})")
     @Options(useGeneratedKeys = true)

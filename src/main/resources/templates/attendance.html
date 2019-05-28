@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>attendance</title>
+</head>
+<body>
+<table>
+    <caption>
+        <strong th:text="${event.name}"></strong>
+    </caption>
+    <thead>
+        <tr><th>候補日</th></tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="obj : ${eventProposedDateList}">
+        <td th:text="${obj.dateStr}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
